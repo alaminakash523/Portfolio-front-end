@@ -16,7 +16,7 @@ function ContactUs() {
   }
   const handleSubmit =async (e) =>{
     e.preventDefault()
-    const url = "http://localhost:8080/send-emails";
+    const url = `${process.env.REACT_APP_BACKEND_KEY}/send-emails`;
     const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -48,11 +48,11 @@ function ContactUs() {
     
     <div className="formgroup" id="email-form">
         <label htmlFor="sender">Your e-mail*</label>
-        <input type="email" id="email" name="sender" value={myEmail.subject} onChange={handleChange}/>
+        <input type="email" id="email" name="sender" value={myEmail.sender} onChange={handleChange}/>
     </div>
     <div className="formgroup" id="name-form">
         <label htmlFor="subject">Subject*</label>
-        <input type="text" id="name" name="subject" value={myEmail.sender} onChange={handleChange}/>
+        <input type="text" id="name" name="subject" value={myEmail.subject} onChange={handleChange}/>
     </div>
     
     

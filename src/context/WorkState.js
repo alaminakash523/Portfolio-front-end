@@ -4,7 +4,8 @@ import WorkContext from './WorkContext'
 function WorkState(props) {
     const [works, setWorks] = useState([])
     const getWorks = async()=>{
-        const url = "http://localhost:8080/works/all_works";
+        const url = `${process.env.REACT_APP_BACKEND_KEY}/works/all_works`;
+        console.log(process.env.REACT_APP_BACKEND_KEY);
         const response = await fetch(url, {
             method: "GET",
             headers: {
@@ -14,7 +15,6 @@ function WorkState(props) {
         if (response.ok) {
             const data = await response.json();
             setWorks(data);
-            // console.log(data);
         } else {
             console.error("Failed to fetch data", response.statusText);
         }

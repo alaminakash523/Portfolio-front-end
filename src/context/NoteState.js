@@ -4,7 +4,7 @@ import NoteContext from './NoteContext'
 function NoteState(props) {
     const [users, setUsers] =useState([])
     const getUser = async()=>{
-        const url = "http://localhost:8080/team/get_all_member";
+        const url = `${process.env.REACT_APP_BACKEND_KEY}/team/get_all_member`;
         const response = await fetch(url, {
             method: "GET",
             headers: {
